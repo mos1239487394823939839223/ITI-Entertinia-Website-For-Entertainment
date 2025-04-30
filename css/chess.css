@@ -1,0 +1,136 @@
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* body {
+    background: linear-gradient(135deg, #190466, #094997, #2369b9, #0a6179);
+    background-size: 200% 200%;
+    animation: wave 6s infinite linear;
+} */
+
+main {
+    padding: 20px;
+    padding-top: 0;
+}
+
+.game-container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 550px;
+    height: 550px;
+    border: 2px solid #000;
+    overflow: hidden;
+}
+
+.chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-align: center;
+}
+
+.light {
+    background-color: #888ff4;
+}
+
+.dark {
+    background-color: #5232e8;
+}
+
+.piece {
+    width: 50%;
+    height: auto;
+    max-width: 50px;
+    transition: transform 0.3s ease;
+}
+
+.cell:hover {
+    border: 4px dashed #000;
+}
+
+.cell:hover .piece {
+    scale: 1.2;
+}
+
+.selected {
+    border: 2px solid red;
+}
+
+.cell.highlight {
+    background-color: rgba(0, 255, 0, 0.5);
+    position: relative;
+}
+
+.cell.highlight::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start-button {
+    display: block;
+    /* Ensure the button behaves as a block element */
+    margin: 0 auto;
+    /* Horizontally center the button */
+    padding: 15px 20px;
+    /* Add some padding for a better appearance */
+    font-size: 16px;
+    /* Adjust font size for readability */
+    background-color: #007bff;
+    /* Button background color */
+    color: #fff;
+    /* Button text color */
+    border: none;
+    /* Remove border */
+    border-radius: 5px;
+    /* Add rounded corners */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
+    text-align: center;
+    /* Center text inside the button */
+}
+
+.start-button:hover {
+    background-color: #0056b3;
+    /* Darken the button color on hover */
+}
+
+.center-container {
+    display: flex;
+    /* Use Flexbox for centering */
+    flex-direction: column;
+    /* Align items vertically */
+    justify-content: center;
+    /* Center items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    height: 80px;
+    /* Make the container take the full viewport height */
+    width: 100%;
+    /* Full width */
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
